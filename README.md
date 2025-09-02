@@ -1,68 +1,86 @@
-# Bank Marketing Term Deposit Prediction
+# Customer Happiness Prediction
 
 ## Project Overview
 
-This project focuses on predicting whether customers will subscribe to a term deposit based on direct marketing campaign data from a European banking institution. The marketing campaign involves making phone calls to customers, often multiple times, to promote term deposit subscriptions.
+This project focuses on predicting customer happiness in the logistics and delivery domain based on customer survey responses. The goal is to identify key factors that influence customer satisfaction and build a predictive model to classify customers as happy or unhappy.
 
 ## Objective
 
-**Primary Goal:** Predict if a customer will subscribe (yes/no) to a term deposit (target variable `y`)
+**Primary Goal:** Predict if a customer is happy or not based on their responses to survey questions
 
-**Success Metric:** Achieve high accuracy using 5-fold cross-validation
+**Success Metric:** Achieve 73% accuracy score or above
 
-## Business Questions
+## Business Context
 
-1. **Customer Segmentation:** Identify customers who are more likely to buy the investment product and determine which customer segments should be prioritized
-2. **Feature Importance:** Understand what drives customer purchase decisions and identify key features to focus on
-
-## Methodology
-
-### Models Implemented
-- **XGBoost** (Best performing model)
-- **Random Forest**
-- **Logistic Regression**
-
-### Model Selection Approach
-- **Evaluation Metric:** F1-score (primary metric due to class imbalance)
-- **Class Imbalance Handling:** Applied SMOTE (Synthetic Minority Oversampling Technique) to address the unbalanced classes in the dataset
-- **Threshold Optimization:** Used `predict_proba` to generate probability predictions and tested thresholds from 0.2 to 0.8 to optimize F1-score performance
-- **Cross-Validation:** 5-fold cross-validation for robust model evaluation
-
-### Best Model Performance
-**XGBoost** achieved the highest F1-score after threshold optimization. The model was further optimized using GridSearchCV for hyperparameter tuning to maximize performance.
+As a fast-growing startup in the logistics and delivery domain, understanding customer satisfaction is crucial for operational improvement and global expansion. This predictive model enables proactive measures to enhance customer experience by identifying potential dissatisfaction patterns.
 
 ## Key Features
 
-The model utilizes various customer attributes including:
-- Demographics (age, job, marital status, education)
-- Financial information (balance, default status, loans)
-- Contact information (contact type, timing, duration)
-- Campaign details (number of contacts, previous outcomes)
+The model utilizes customer survey responses across six key dimensions:
+- **Order Delivery:** Timeliness of delivery
+- **Order Accuracy:** Contents matching expectations
+- **Order Completeness:** Ability to order desired items
+- **Pricing Satisfaction:** Value for money perception
+- **Courier Service:** Satisfaction with delivery personnel
+- **App Experience:** Ease of use for ordering platform
+
+Each feature is rated on a scale from 1 to 5, where higher values indicate greater satisfaction.
+
+## Methodology
+
+### Model Development
+1. **Data Preprocessing:** Clean and prepare survey response data
+2. **Exploratory Data Analysis:** Understand patterns and relationships in customer responses
+3. **Feature Engineering:** Optimize input features for model performance
+4. **Model Training:** Implement and compare multiple classification algorithms
+5. **Model Evaluation:** Assess performance using accuracy
+
+### Feature Importance Analysis
+- Identify which survey questions are most predictive of customer happiness
+- Determine the minimal set of features that preserve maximum information
+- Provide recommendations for survey optimization
 
 ## Technical Implementation
 
-### Model Training
-1. Data preprocessing and feature engineering
-2. Applied SMOTE to handle class imbalance in the target variable
-3. Training multiple models (XGBoost, Random Forest, Logistic Regression)
-4. Used GridSearchCV for hyperparameter optimization on the best performing model (XGBoost)
+### Classification Models
+Multiple machine learning algorithms were evaluated to find the best performing model for customer happiness prediction.
 
-### Threshold Optimization
-- Generated probability predictions using `predict_proba`
-- Systematically tested thresholds from 0.2 to 0.8
-- Selected optimal threshold based on F1-score performance
-- This approach ensures balanced precision and recall for business impact
+### Feature Selection Approach
+Advanced feature selection techniques were applied to:
+- Identify the most important predictive features
+- Reduce survey complexity while maintaining model performance
+- Provide actionable insights for survey design optimization
 
 ### Model Evaluation
-- 5-fold cross-validation for reliable performance estimation
-- F1-score as primary metric (addressing class imbalance)
-- Accuracy tracking to meet business requirements
+- Primary metric: Accuracy (target: ≥73%)
+- Cross-validation for robust performance estimation
 
 ## Business Impact
 
-This machine learning solution enables the banking client to:
-- **Improve Call Efficiency:** Focus efforts on customers with higher subscription probability
-- **Optimize Resource Allocation:** Prioritize high-potential customer segments
-- **Data-Driven Decisions:** Leverage interpretable model insights for campaign strategy
-- **Measurable ROI:** Track and improve campaign success rates
+This solution enables the organization to:
+- **Proactive Customer Management:** Identify at-risk customers before they become dissatisfied
+- **Operational Optimization:** Focus improvement efforts on the most impactful service areas
+- **Survey Efficiency:** Streamline future surveys by removing less informative questions
+- **Strategic Decision Making:** Data-driven insights for service enhancement priorities
 
+## Key Insights
+
+### Feature Importance Rankings
+The analysis reveals which aspects of the customer experience are most critical for happiness prediction, enabling targeted operational improvements.
+
+### Survey Optimization Recommendations
+Based on feature selection analysis, recommendations are provided for:
+- Questions that can be safely removed from future surveys
+- Core questions that must be retained for accurate prediction
+- Optimal survey length for maximum information with minimal customer burden
+
+## Results Summary
+
+The developed model successfully meets the accuracy requirements while providing valuable insights into customer happiness drivers. The feature importance analysis offers actionable recommendations for both operational improvements and survey optimization.
+
+## Business Applications
+
+1. **Customer Retention:** Early identification of potentially unhappy customers
+2. **Service Improvement:** Focus areas for operational enhancement
+3. **Survey Design:** Optimized questionnaires for future customer feedback collection
+4. **Performance Monitoring:** Continuous tracking of satisfaction drivers
