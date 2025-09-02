@@ -8,11 +8,11 @@ This project focuses on predicting whether customers will subscribe to a term de
 
 **Primary Goal:** Predict if a customer will subscribe (yes/no) to a term deposit (target variable `y`)
 
-**Success Metric:** Achieve 81% or above accuracy using 5-fold cross-validation
+**Success Metric:** Achieve high accuracy using 5-fold cross-validation
 
 ## Business Questions
 
-1. **Customer Segmentation:** Identify customers who are more likely to buy the investment product and determine which customer segments should be prioritized using DBSCAN clustering technique
+1. **Customer Segmentation:** Identify customers who are more likely to buy the investment product and determine which customer segments should be prioritized
 2. **Feature Importance:** Understand what drives customer purchase decisions and identify key features to focus on
 
 ## Methodology
@@ -29,7 +29,7 @@ This project focuses on predicting whether customers will subscribe to a term de
 - **Cross-Validation:** 5-fold cross-validation for robust model evaluation
 
 ### Best Model Performance
-**XGBoost** achieved the highest F1-score after threshold optimization, making it our selected model for deployment. The model was further optimized using GridSearchCV for hyperparameter tuning to maximize performance.
+**XGBoost** achieved the highest F1-score after threshold optimization. The model was further optimized using GridSearchCV for hyperparameter tuning to maximize performance.
 
 ## Key Features
 
@@ -46,7 +46,6 @@ The model utilizes various customer attributes including:
 2. Applied SMOTE to handle class imbalance in the target variable
 3. Training multiple models (XGBoost, Random Forest, Logistic Regression)
 4. Used GridSearchCV for hyperparameter optimization on the best performing model (XGBoost)
-5. Applied DBSCAN clustering technique to identify relevant customer segments to prioritize
 
 ### Threshold Optimization
 - Generated probability predictions using `predict_proba`
@@ -57,7 +56,7 @@ The model utilizes various customer attributes including:
 ### Model Evaluation
 - 5-fold cross-validation for reliable performance estimation
 - F1-score as primary metric (addressing class imbalance)
-- Accuracy tracking to meet business requirements (>81%)
+- Accuracy tracking to meet business requirements
 
 ## Business Impact
 
